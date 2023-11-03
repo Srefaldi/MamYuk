@@ -1,0 +1,108 @@
+@media screen and (min-width: 650px) {
+    .app-bar {
+      grid-template-columns: 1fr auto;
+      padding: 8px 32px;
+    }
+   
+    .app-bar .app-bar__brand h1 {
+      font-size: 1.5em;
+      
+    }
+   
+    .app-bar .app-bar__menu {
+      display: none;
+    }
+   
+    .app-bar .app-bar__navigation {
+      position: static;
+      width: 100%;
+    }
+   
+    .app-bar .app-bar__navigation ul li {
+      display: inline-block;
+    }
+   
+    .app-bar .app-bar__navigation ul li a {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      margin: 0;
+    }
+   
+    .restaurants {
+      grid-template-columns: 1fr 1fr;
+    }
+   
+    .restaurant {
+      grid-template-columns: auto 1fr;
+    }
+   
+    .restaurant .restaurant__name {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+   
+    .restaurant .restaurant__overview {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+   
+  @media screen and (min-width: 800px) {
+    .app-bar .app-bar__brand h1 {
+      font-size: 2em;
+      
+      
+    }
+  }
+   
+  @media screen and (min-width: 850px) {
+    .restaurants {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+   
+  @media screen and (min-width: 1200px) {
+    .restaurants {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+   
+  @media screen and (min-width: 1600px) {
+    .restaurants {
+        grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  /* Untuk mode mobile (lebar layar kurang dari 650px) */
+@media screen and (max-width: 649px) {
+  .app-bar .app-bar__navigation.open {
+    height: 100vh;
+  }
+}
+
+/* Untuk mode desktop (lebar layar 650px atau lebih) */
+@media screen and (min-width: 650px) {
+  .app-bar .app-bar__navigation.open {
+    height: auto; /* Atur kembali ke nilai aslinya */
+  }
+  .app-bar .app-bar__navigation ul {
+    display: flex; /* Menggunakan flexbox */
+    list-style: none; /* Menghapus poin daftar */
+    padding: 0; /* Menghapus padding default */
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    margin-right: 10px; /* Memberikan jarak antara setiap elemen */
+  }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: block;
+    text-decoration: none;
+    color: #0B2447;
+    padding: 10px 40px;
+     /* Sesuaikan padding sesuai kebutuhan */
+    min-width: 44px;
+     min-height: 44px;
+  }
+}
+
