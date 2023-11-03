@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "serve": "http-server dist",
+    "serve": "http-server dist --port 9000",
     "test:watch": "jest --watchAll"
   },
   "keywords": [],
@@ -41,6 +41,7 @@
     "workbox-webpack-plugin": "^7.0.0"
   },
   "dependencies": {
+    "idb": "^7.1.1",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.69.2",
     "workbox-window": "^7.0.0"
