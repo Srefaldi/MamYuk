@@ -252,6 +252,15 @@ main {
   display: flex;
 }
 
+.content .content__heading {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Menyesuaikan tinggi elemen yang mengandung teks */
+  text-align: center;
+}
+
 /* Styling for the restaurant image */
 
 /* Styling for the restaurant image */

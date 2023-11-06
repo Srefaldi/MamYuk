@@ -5,7 +5,7 @@ const Home = {
   async render() {
     return `
       <div class="content">
-        <h2 class="content__heading">List of Restaurants</h2>
+        <h2 class="content__heading">Temukan Restoran Favorite Anda</h2>
         <div class="restaurants" id="restaurants">
         </div>
       </div>

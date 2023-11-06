@@ -10,16 +10,16 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 });
 
 const FavoriteMovieIdb = {
-  async getMovie(id) {
+  async getResto(id) {
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
-  async getAllMovies() {
+  async getAllResto() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
-  async putMovie(movie) {
-    return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+  async putResto(Resto) {
+    return (await dbPromise).put(OBJECT_STORE_NAME, Resto);
   },
-  async deleteMovie(id) {
+  async delateResto(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
 };

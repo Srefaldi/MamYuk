@@ -1,13 +1,26 @@
-const Upcoming = {
+import FavoriteMovieIdb from '../../data/fav-resto';
+import createRestaurantItemTemplate from '../templates/template-pages';
+
+const Like = {
   async render() {
     return `
-        <h2>Upcoming page</h2>
-      `;
+      <div class="content">
+        <h2 class="content__heading">Favorite Restorant Anda</h2>
+        <div id="movies"  class="restaurants">
+ 
+        </div>
+      </div>
+    `;
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const movies = await FavoriteMovieIdb.getAllResto();
+    const moviesContainer = document.querySelector('#movies');
+
+    movies.forEach((restaurant) => {
+      moviesContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+    });
   },
 };
 
-export default Upcoming;
+export default Like;

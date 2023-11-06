@@ -1,6 +1,5 @@
 import 'regenerator-runtime';
 import '../styles/main.css';
-// eslint-disable-next-line import/extensions
 import './components/hero-bar';
 import './components/footer-bar';
 import '../styles/style.css';
