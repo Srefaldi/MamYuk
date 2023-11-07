@@ -5,7 +5,7 @@ const Like = {
   async render() {
     return `
       <div class="content">
-        <h2 class="content__heading">Favorite Restorant Anda</h2>
+        <h2 class="content__heading">Restorant Favorite Anda</h2>
         <div id="movies"  class="restaurants">
  
         </div>

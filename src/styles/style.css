@@ -1,411 +1,494 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-/*
-  AppBar
-*/
-.app-bar {
-  background-color: white;
-  color: white;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 10px 0;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 500; 
-  min-height: 44px;
-  min-width: 44px;
-}
-
-
-.app-bar .app-bar__menu {
-  display: flex;
-  align-items: center;
-}
-
-.app-bar .app-bar__menu button {
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.app-bar .app-bar__brand {
-  display: flex;
-  align-items: center;
-  text-align: center; /* Add this line to center-align the text */
-}
-
-.app-bar .app-bar__brand h1 {
-  color: #0B2447;
-  text-transform: uppercase;
-  font-size: 22px;
-  
-  user-select: none;
-}
-
-.app-bar .app-bar__navigation {
-  position: absolute;
-  top: 50px;
-  left: -180px;
-  width: 150px;
-  transform: translateX(0);
-  padding: 20px 20px; /* Memberikan padding kiri dan kanan sebesar 10px */
-  background-color: white;
-  overflow: hidden;
-  z-index: 50; /* Add this line to set the initial z-index */
-  transition: left 0.3s; /* Add this line to set the transition for left property */
-  min-height: 44px;
-  min-width: 44px;
-}
-
-.app-bar .app-bar__navigation.open {
-  left: 0;
-  z-index: 100;
-  height: 100vh;
-}
+  /*
+    AppBar
+  */
+  .app-bar {
+    background-color: white;
+    color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 500; 
+    min-height: 44px;
+    min-width: 44px;
+  }
 
 
-.app-bar .app-bar__navigation ul li a {
-  display: flex;
-  text-decoration: none;
-  color: #0B2447;
-  padding: 20px 20px; /* Menambahkan padding kiri dan kanan sebesar 10px */
-  margin-bottom: 2px;
-  width: 44px !important;
-  height: 44px !important;
-}
+  .app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+    text-align: center; /* Add this line to center-align the text */
+  }
+
+  .app-bar .app-bar__brand h1 {
+    color: #0B2447;
+    text-transform: uppercase;
+    font-size: 22px;
+    
+    user-select: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transform: translateX(0);
+    padding: 20px 20px; /* Memberikan padding kiri dan kanan sebesar 10px */
+    background-color: white;
+    overflow: hidden;
+    z-index: 50; /* Add this line to set the initial z-index */
+    transition: left 0.3s; /* Add this line to set the transition for left property */
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .app-bar .app-bar__navigation.open {
+    left: 0;
+    z-index: 100;
+    height: 100vh;
+  }
 
 
-.app-bar .app-bar__menu button,
-.app-bar .app-bar__navigation ul li a {
-  width: 44px;
-  height: 44px;
-}
+  .app-bar .app-bar__navigation ul li a {
+    display: flex;
+    text-decoration: none;
+    color: #0B2447;
+
+    margin-bottom: 2px;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
 
 
-
-/*
-  Main Content
-*/
-
-main {
-  flex: 1;
-}
-
-.content {
-  margin: 0 auto;
-  min-height: 100%;
-}
-
-.content .content__heading {
-  font-weight: normal;
-}
-
-
-/*
-  restaurants
-*/
-
-.restaurants {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin: 32px 0;
-}
-
-/*
-  restaurant Item
-*/
-
-.restaurant-item {
-  background-color: #0B2447;
-  box-shadow: 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.1s;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 5px; /* Menambahkan jarak di sisi kiri dan kanan kartu */
-}
-
-.restaurant-item__header {
-  position: relative;
-}
-
-.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
-  width: 100%;
-}
-.restaurant-item .restaurant-item__header__image{
-  max-width: 100%;
-  height: 300px; 
-  object-fit: cover;
-}
-
-.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
-  position: absolute;
-  padding: 8px;
-  bottom: 20px;
-  left: 0;
-  display: inline-block;
-  background-color: black;
-  color: white;
-}
-.restaurant-item:hover {
-  transform: scale(1.02);
-}
-
-.restaurant-item .restaurant-city {
-  font-size: 1rem;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.restaurant-item .restaurant-item__content {
-  padding: 16px;
-}
-
-.restaurant-item .restaurant-name {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.restaurant-item .restaurant-item__content h1 a {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-decoration: none;
-}
-.restaurant-item .restaurant-item__content h3 {
-  font-size: 1rem;
-  color: #888;
-  margin-bottom: 10px;
-}
-.restaurant-item .restaurant-item__content .restaurant-rating{
-  font-size: 1rem;
-  color: #f8c10a;
-  margin-bottom: 10px;
-}
-.restaurant-item .restaurant-item__content p{
-  font-size: 1rem;
-  color: white;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/*
-  restaurant
-*/
-
-.restaurant {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 800px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px 16px;
-}
-
-.restaurant .restaurant__image {
-  width: 100%;
-  max-width: 400px;
-}
-
-.restaurant .restaurant__info h4 {
-  margin: 8px 0;
-}
-
-/* Detail */
-/* Styling for the entire restaurant detail section */
-.restaurant-detail {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-}
-
-/* Styling for the restaurant name */
-.restaurant__name {
-  font-size: 24px;
-  font-weight: bold;
-  color: #0B2447;
-  margin-bottom: 10px;
-  align-items: center; /* Tambahkan ini */
-  justify-content: center; 
-  display: flex;
-}
-
-.content .content__heading {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Menyesuaikan tinggi elemen yang mengandung teks */
-  text-align: center;
-}
-
-/* Styling for the restaurant image */
-
-/* Styling for the restaurant image */
-.restaurant__image {
-  width: 70%;
-  height: auto;
-  border-radius: 8px;
-  margin: 20px auto; /* Tambahkan ini untuk pengaturan horizontal */
-  display: flex; /* Tambahkan ini */
-  align-items: center; /* Tambahkan ini */
-  justify-content: center; /* Tambahkan ini */
-}
+  .app-bar .app-bar__menu button,
+  .app-bar .app-bar__navigation ul li a {
+    width: 44px;
+    height: 44px;
+  }
 
 
 
-/* Styling for the information section */
-.restaurant__info {
-  margin-bottom: 20px;
-}
+  /*
+    Main Content
+  */
 
-.restaurant__info h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0B2447;
-}
+  main {
+    flex: 1;
+  }
 
-/* Styling for the rating */
-.restaurant__info .movie-item__header__rating__score {
-  color: #f8c10a;
-}
+  .content {
+    margin: 0 auto;
+    min-height: 100%;
+  }
 
-/* Styling for city and address */
-.restaurant__info h4 {
-  font-size: 16px;
-  color: #888;
-  margin-top: 10px;
-}
-
-/* Styling for the description section */
-.restaurant__description {
-  margin-bottom: 20px;
-}
-
-.restaurant__description h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0B2447;
-}
-
-.restaurant__description p {
-  font-size: 16px;
-  color: #333;
-}
-
-/* Styling for the menu section */
-.restaurant__menu {
-  margin-bottom: 20px;
-}
-
-.restaurant__menu h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0B2447;
-}
-
-.restaurant__menu h4 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
-}
-
-.restaurant__menu ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.restaurant__menu li {
-  font-size: 16px;
-  color: #333;
-}
-
-/* Styling for the customer reviews section */
-.restaurant__reviews {
-  margin-bottom: 20px;
-}
-
-.restaurant__reviews h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0B2447;
-}
-
-.review-item {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-}
-
-.review-item p {
-  font-size: 16px;
-  color: #333;
-}
-
-.review-item strong {
-  font-weight: bold;
-  color: #0B2447;
-}
-
-/* Additional styling for restaurant-item__header__image */
-.restaurant-item__header__image {
-  max-width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-/* Styling for restaurant-item on hover */
-.restaurant-item:hover {
-  transform: scale(1.02);
-}
-/*
-  Footer
-*/
+  .content .content__heading {
+    font-weight: normal;
+  }
 
 
-/*
-   Like
-*/
+  /*
+    restaurants
+  */
 
-.like {
-  width: 55px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #db0000;
-  
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  border-radius: 50%;
-  border: 0;
-  
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-}
+  .restaurants {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  /*
+    restaurant Item
+  */
+
+  .restaurant-item {
+    background-color: #0B2447;
+    box-shadow: 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.1s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 5px; /* Menambahkan jarak di sisi kiri dan kanan kartu */
+  }
+
+  .restaurant-item__header {
+    position: relative;
+  }
+
+  .restaurant-item .restaurant-item__header .restaurant-item__header__poster {
+    width: 100%;
+  }
+  .restaurant-item .restaurant-item__header__image{
+    max-width: 100%;
+    height: 300px; 
+    object-fit: cover;
+  }
+
+  .restaurant-item .restaurant-item__header .restaurant-item__header__rating {
+    position: absolute;
+    padding: 8px;
+    bottom: 20px;
+    left: 0;
+    display: inline-block;
+    background-color: black;
+    color: white;
+  }
+  .restaurant-item:hover {
+    transform: scale(1.02);
+  }
+
+  .restaurant-item .restaurant-city {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  .restaurant-item .restaurant-item__content {
+    padding: 16px;
+  }
+
+  .restaurant-item .restaurant-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .restaurant-item .restaurant-item__content h1 a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  .restaurant-item .restaurant-item__content h3 {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .restaurant-item .restaurant-item__content .restaurant-rating{
+    font-size: 1rem;
+    color: #f8c10a;
+    margin-bottom: 10px;
+  }
+  .restaurant-item .restaurant-item__content p{
+    font-size: 1rem;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /*
+    restaurant
+  */
+
+  .restaurant {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px 16px;
+  }
+
+  .restaurant .restaurant__image {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .restaurant .restaurant__info h4 {
+    margin: 8px 0;
+  }
+
+  /* Detail */
+  /* Styling for the entire restaurant detail section */
+  .restaurant-detail {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+
+  /* Styling for the restaurant name */
+  .restaurant__name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0B2447;
+    margin-bottom: 10px;
+    align-items: center; /* Tambahkan ini */
+    justify-content: center; 
+    display: flex;
+  }
+
+  .content .content__heading {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Menyesuaikan tinggi elemen yang mengandung teks */
+    text-align: center;
+  }
+
+  /* Styling for the restaurant image */
+
+  /* Styling for the restaurant image */
+  .restaurant__image {
+    width: 70%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px auto; /* Tambahkan ini untuk pengaturan horizontal */
+    display: flex; /* Tambahkan ini */
+    align-items: center; /* Tambahkan ini */
+    justify-content: center; /* Tambahkan ini */
+  }
+
+
+
+  /* Styling for the information section */
+  .restaurant__info {
+    margin-bottom: 20px;
+  }
+
+  .restaurant__info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0B2447;
+  }
+
+  /* Styling for the rating */
+  .restaurant__info .movie-item__header__rating__score {
+    color: #f8c10a;
+  }
+
+  /* Styling for city and address */
+  .restaurant__info h4 {
+    font-size: 16px;
+    color: #0B2447;
+    margin-top: 10px;
+  }
+
+  /* Styling for the description section */
+  .restaurant__description {
+    margin-bottom: 20px;
+  }
+
+  .restaurant__description h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0B2447;
+  }
+
+  .restaurant__description p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  /* Styling for the menu section */
+  .restaurant__menu {
+    margin-bottom: 20px;
+  }
+
+  .restaurant__menu h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0B2447;
+  }
+
+  .restaurant__menu h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .restaurant__menu ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .restaurant__menu li {
+    font-size: 16px;
+    color: #333;
+  }
+
+  /* Styling for the customer reviews section */
+  .restaurant__reviews {
+    margin-bottom: 20px;
+  }
+
+  .restaurant__reviews h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0B2447;
+  }
+
+  .review-item {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+
+  .review-item p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .review-item strong {
+    font-weight: bold;
+    color: #0B2447;
+  }
+
+  /* Additional styling for restaurant-item__header__image */
+  .restaurant-item__header__image {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  /* Styling for restaurant-item on hover */
+  .restaurant-item:hover {
+    transform: scale(1.02);
+  }
+  /* Review Form */
+  /* Styling for the review form container */
+  #reviewFormContainer {
+    margin: 0 auto;
+    width: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+    margin-bottom: 30px;
+  }
+
+  /* Styling for the Add Your Review heading */
+  #reviewFormContainer h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0B2447;
+  }
+
+  /* Styling for form labels */
+  #reviewFormContainer label {
+    display: block; /* Mengubah label menjadi elemen blok */
+    text-align: center; /* Meletakkan teks label di tengah */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #444;
+  }
+  /* Styling for form input fields */
+  #reviewFormContainer input,
+  #reviewFormContainer textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  /* Styling for the Submit Review button */
+  #reviewFormContainer button {
+    background-color: #0B2447;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Styling for the Submit Review button on hover */
+  #reviewFormContainer button:hover {
+    background-color: black;
+  }
+
+
+
+  /*
+    Like
+  */
+
+  .like {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #db0000;
+    
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 50%;
+    border: 0;
+    
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Loading */
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #0B2447;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto; /* Untuk mengatur posisi spinner di tengah */
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .content .loading-indicator .spinner{
+    
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #0B2447;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      margin: 0 auto; /* Untuk mengatur posisi spinner di tengah */
+    }

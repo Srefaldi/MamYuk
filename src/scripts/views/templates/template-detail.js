@@ -77,7 +77,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
         <h3>Customer Reviews</h3>
         ${reviews}
       </div>
-
+      
     </div>
   `;
 };

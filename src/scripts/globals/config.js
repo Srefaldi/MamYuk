@@ -8,6 +8,7 @@ const CONFIG = {
   DATABASE_NAME: 'favorite-resto',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'resto',
+  WEB_SOCKET_SERVER: 'wss://javascript.info/article/websocket/chat/ws',
 };
 
 export default CONFIG;
