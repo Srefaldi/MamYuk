@@ -13,7 +13,6 @@ const PostReview = async (url, name, review, rating) => {
     const response = await RestaurantSource.postReview(dataInput);
 
     if (response.status === 'success') {
-      // Ulasan berhasil dikirim, tambahkan ulasan ke halaman
       const reviewContainer = document.querySelector('.detail-review');
       const date = new Date().toLocaleDateString('id-ID', {
         year: 'numeric',

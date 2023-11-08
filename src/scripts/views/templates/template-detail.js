@@ -1,19 +1,5 @@
 import CONFIG from '../../globals/config';
 
-// // Membuat template tombol "Like"
-// const createLikeButtonTemplate = () => `
-//   <button aria-label="like this restaurant" id="likeButton" class="like">
-//      <i class="fa fa-heart-o" aria-hidden="true"></i>
-//   </button>
-// `;
-
-// // Membuat template tombol "Liked"
-// const createLikedButtonTemplate = () => `
-//   <button aria-label="unlike this restaurant" id="likeButton" class="like">
-//     <i class="fa fa-heart" aria-hidden="true"></i>
-//   </button>
-// `;
-
 const createRestaurantDetailTemplate = (restaurant) => {
   const {
     name,
@@ -43,12 +29,6 @@ const createRestaurantDetailTemplate = (restaurant) => {
     )
     .join('');
 
-  // const likeButton = createLikeButtonTemplate(); // Tambahkan tombol "Like" di sini
-  // const likedButton = createLikedButtonTemplate(); // Tambahkan tombol "Liked" di sini
-  //   <div class="restaurant__like-button">
-  //   ${likeButton}
-  //   ${likedButton}
-  // // </div>
   return `
     <div class="restaurant-detail">
       <h2 class="restaurant__name">${name}</h2>
