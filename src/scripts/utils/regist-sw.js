@@ -5,7 +5,7 @@ const swRegister = async () => {
     console.log('Service Worker not supported in the browser');
     return;
   }
-  const wb = new Workbox('./sw.js');
+  const wb = new Workbox('./sw.bundle.js');
 
   try {
     await wb.register();

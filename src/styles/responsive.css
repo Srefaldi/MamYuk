@@ -27,6 +27,8 @@
       width: 120px;
       text-align: center;
       margin: 0;
+      min-height: 44px !important;
+      min-width: 44px !important;
     }
    
     .restaurants {
@@ -73,36 +75,55 @@
         grid-template-columns: repeat(5, 1fr);
     }
   }
-  /* Untuk mode mobile (lebar layar kurang dari 650px) */
+
 @media screen and (max-width: 649px) {
   .app-bar .app-bar__navigation.open {
     height: 100vh;
   }
 }
 
-/* Untuk mode desktop (lebar layar 650px atau lebih) */
+
 @media screen and (min-width: 650px) {
   .app-bar .app-bar__navigation.open {
-    height: auto; /* Atur kembali ke nilai aslinya */
+    height: auto;
   }
   .app-bar .app-bar__navigation ul {
-    display: flex; /* Menggunakan flexbox */
-    list-style: none; /* Menghapus poin daftar */
-    padding: 0; /* Menghapus padding default */
+    display: flex;
+    list-style: none; 
+    padding: 0; 
   }
 
   .app-bar .app-bar__navigation ul li {
-    margin-right: 10px; /* Memberikan jarak antara setiap elemen */
+    margin-right: 10px; 
   }
 
-  .app-bar .app-bar__navigation ul li a {
-    display: block;
+  .app-bar .app-bar__navigation  ul li a {
+    display: inline-block;
     text-decoration: none;
     color: #0B2447;
-    padding: 10px 40px;
-     /* Sesuaikan padding sesuai kebutuhan */
-    min-width: 44px;
-     min-height: 44px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px ;
+  }
+  .app-bar .app-bar__brand h1{
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    min-height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    min-height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
 }
 

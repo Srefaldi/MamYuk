@@ -1,5 +1,4 @@
 import 'regenerator-runtime';
-import '../styles/main.css';
 import './components/hero-bar';
 import './components/footer-bar';
 import '../styles/style.css';

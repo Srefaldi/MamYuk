@@ -1,16 +1,35 @@
-  * {
-    padding: 0;
-    margin: 0;
-  }
+img {
+  display: block;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  scroll-behavior: smooth;
+}
+.skip-link {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  background-color: #604244;
+  color: white;
+  padding: 8px;
+  z-index: 3000;
+}
 
+.skip-link:focus {
+  top: 0;
+  z-index: 3000;
+}
   /*
     AppBar
   */
@@ -30,15 +49,17 @@
   }
 
   .app-bar .app-bar__menu a {
-    display: flex;
+    display: inline-block;
     align-items: center;
     min-width: 44px;
     min-height: 44px;
+    margin-top: 20px;
     text-decoration: none;
     color: #0B2447;
     font-size: 16px;
     padding: 8px;
   }
+  
   
   .app-bar .app-bar__menu {
     display: flex;
@@ -106,7 +127,24 @@
     height: 44px;
   }
 
+  
 
+
+  .app-bar .app-bar__menu button,
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+
+  .app-bar .app-bar__navigation .coustum a{
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+  
 
   /*
     Main Content
@@ -150,7 +188,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin: 5px; /* Menambahkan jarak di sisi kiri dan kanan kartu */
+    margin: 5px; 
   }
 
   .restaurant-item__header {
@@ -218,7 +256,19 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
+  .restaurant-item__content a {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+    padding: 8px;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+  }
+  
+  
   /*
     restaurant
   */
@@ -242,7 +292,7 @@
   }
 
   /* Detail */
-  /* Styling for the entire restaurant detail section */
+ 
   .restaurant-detail {
     background-color: white;
     padding: 20px;
@@ -271,9 +321,7 @@
     text-align: center;
   }
 
-  /* Styling for the restaurant image */
-
-  /* Styling for the restaurant image */
+ 
   .restaurant__image {
     width: 70%;
     height: auto;
@@ -286,7 +334,7 @@
 
 
 
-  /* Styling for the information section */
+
   .restaurant__info {
     margin-bottom: 20px;
   }
@@ -297,19 +345,18 @@
     color: #0B2447;
   }
 
-  /* Styling for the rating */
   .restaurant__info .movie-item__header__rating__score {
     color: #f8c10a;
   }
 
-  /* Styling for city and address */
+
   .restaurant__info h4 {
     font-size: 16px;
     color: #0B2447;
     margin-top: 10px;
   }
 
-  /* Styling for the description section */
+
   .restaurant__description {
     margin-bottom: 20px;
   }
@@ -325,7 +372,7 @@
     color: #333;
   }
 
-  /* Styling for the menu section */
+  
   .restaurant__menu {
     margin-bottom: 20px;
   }
@@ -353,7 +400,7 @@
     color: #333;
   }
 
-  /* Styling for the customer reviews section */
+
   .restaurant__reviews {
     margin-bottom: 20px;
   }
@@ -435,9 +482,13 @@
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    width: 100%;
+    display: inline-block;
+    min-width: 44px;
+    width: 100%; 
+    height: 44px; 
     transition: background-color 0.3s ease;
-  }
+}
+
 
 
   #reviewFormContainer button:hover {
@@ -477,7 +528,7 @@
     width: 40px;
     height: 40px;
     animation: spin 2s linear infinite;
-    margin: 0 auto; /* Untuk mengatur posisi spinner di tengah */
+    margin: 0 auto; 
   }
 
   @keyframes spin {
@@ -492,5 +543,33 @@
       width: 40px;
       height: 40px;
       animation: spin 2s linear infinite;
-      margin: 0 auto; /* Untuk mengatur posisi spinner di tengah */
+      margin: 0 auto; 
     }
+    a{
+      display: inline-block;
+      min-width: 44px;
+      min-height: 44px;
+  }
+
+  button {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    padding: 8px;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  min-height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  min-height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

@@ -7,13 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
     <link rel="icon" href="./images/logo/logo.png">
     <!-- Manifest -->
     <link rel="manifest" href="./app.webmanifest">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     
-    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
     <title>MamYuk</title>
    
   </head>
@@ -36,16 +35,18 @@
         </ul>
       </nav>
     </header>
-    <hero-bar></hero-bar>
+    
+<hero-bar></hero-bar>
+<div id="skip-content" tabindex="0">
     <main id="mainContent">
-
-        <menu-bar id="skip-content"></menu-bar>
-        <div id="loadingIndicator" class="loading-indicator">
+     
+      <div id="loadingIndicator" class="loading-indicator">
           <div class="spinner"></div>
           <h1>Loading...</h1>
         </div>
         <div id="errorContainer" class="error-container"></div>
     </main>
+  </div>
     <footer>
         <footer-bar></footer-bar>
     </footer>

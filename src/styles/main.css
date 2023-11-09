@@ -16,19 +16,24 @@ html {
   background-color: var(--primary-color);
   scroll-behavior: smooth;
 }
+a{
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
 .skip-link {
   position: absolute;
   top: -70px;
   left: 0;
-  background-color: #bf1722;
+  background-color: #604244;
   color: white;
   padding: 8px;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 .skip-link:focus {
   top: 0;
-  z-index: 2000;
+  z-index: 3000;
 }
 /* App bar */
 
