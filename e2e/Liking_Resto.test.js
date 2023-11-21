@@ -40,3 +40,27 @@ Scenario('liking and unliking a restaurant', async ({ I }) => {
   I.seeElement('#movies');
   I.see(emptyFavoriteRestoText, '#movies');
 });
+// Menambahkan Customer Review
+Scenario('Customer review', async ({ I }) => {
+  I.amOnPage('/');
+
+  I.waitForElement('.restaurant-item');
+  I.click(locate('.card-title').first());
+
+  I.waitForElement('.restaurant__info');
+
+  const textReview = 'Form Review Test E2E';
+  I.fillField({ id: 'name' }, 'Sopia Refaldi Subs 3');
+  I.fillField({ id: 'review' }, textReview);
+
+  I.click('#submit');
+  I.wait(3); // Tunggu beberapa detik agar ulasan muncul sepenuhnya
+  // after submit review
+  const lastReview = locate('.restaurant__reviews .review-item').last();
+  const lastReviewText = await I.grabTextFrom(lastReview);
+
+  // Sesuaikan expectedReviewText sesuai dengan format teks yang diharapkan
+  const expectedReviewText = 'Sopia Refaldi Subs 3\n                Form Review Test E2E\n                21 November 2023';
+
+  assert.strictEqual(lastReviewText.trim(), expectedReviewText.trim());
+});

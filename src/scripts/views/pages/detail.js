@@ -18,7 +18,7 @@ const Detail = {
             <input type="text" id="name" name="name" required>
             <label for="review">Your Review</label>
             <textarea id="review" name="review" required></textarea>
-            <button type="submit">Submit Review</button>
+            <button id="submit" type="submit">Submit Review</button>
           </form>
         </div>
         <div id="loadingIndicator" class="loading-indicator">
